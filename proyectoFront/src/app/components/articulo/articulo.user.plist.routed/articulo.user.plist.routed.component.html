@@ -1,0 +1,104 @@
+<div class="super-wrapper">
+  
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2 style="font-family: 'Cinzel'; font-size: 3rem; letter-spacing: 6px; color: #fff; margin-bottom: 5px;">
+        ARCANOS MAYORES
+      </h2>
+      <p style="color: #666; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase;">
+        Elige tu destino
+      </p>
+    </div>
+
+    <div class="search-wrapper">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="Invocar artefacto..."
+        [(ngModel)]="strFiltro" 
+        (keyup)="filter($event)"
+        autocomplete="off"
+      >
+    </div>
+
+    <div class="row g-5 justify-content-center">
+      
+      @for (articulo of oPage?.content; track articulo.id) {
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          
+          <div class="tarot-card" (click)="view(articulo)">
+            
+            <div class="tarot-inner-border">
+              
+              <span class="arcana-number">No. {{ articulo.id }}</span>
+              
+              <div class="tarot-image-box">
+                <div class="rune-circle">
+                  @if(articulo.id % 2 === 0) {
+                    <span class="material-symbols-outlined mystic-icon">cyclone</span>
+                  } @else if (articulo.id % 3 === 0) {
+                    <span class="material-symbols-outlined mystic-icon">spa</span>
+                  } @else {
+                    <span class="material-symbols-outlined mystic-icon">all_inclusive</span>
+                  }
+                </div>
+              </div>
+
+              <h3 class="tarot-title">{{ articulo.nombre }}</h3>
+              <p class="tarot-desc">{{ articulo.descripcion }}</p>
+              
+              <div class="tarot-price">
+                {{ articulo.precio }} €
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      } @empty {
+        <div class="col-12 text-center py-5">
+          <p style="color: #666; font-family: 'Cinzel'; font-style: italic;">
+            Las cartas no revelan resultados...
+          </p>
+        </div>
+      }
+
+    </div>
+
+    <div class="pagination-wrapper">
+      
+      <div class="page-btn" [class.disabled]="nPage - -1 === 1" (click)="goToPrev()">
+        <span class="material-symbols-outlined">west</span>
+      </div>
+
+      @for (pag of arrBotonera; track pag) {
+        @if(pag === '...') {
+          <span style="color: #666;">...</span>
+        } @else {
+          <div class="page-btn" [class.active]="nPage - -1 === -(-pag)" (click)="goToPage(-(-pag))">
+            {{ pag }}
+          </div>
+        }
+      }
+
+      <div class="page-btn" [class.disabled]="nPage - -1 === oPage?.totalPages" (click)="goToNext()">
+        <span class="material-symbols-outlined">east</span>
+      </div>
+      
+    </div>
+    
+    <div class="text-center mt-4">
+      <small style="color: #444; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;" (click)="goToRpp(10)">
+        [ X ]
+      </small>
+      <small style="color: #444; text-transform: uppercase; letter-spacing: 1px; margin: 0 10px; cursor: pointer;" (click)="goToRpp(50)">
+        [ L ]
+      </small>
+      <small style="color: #444; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;" (click)="goToRpp(100)">
+        [ C ]
+      </small>
+    </div>
+
+  </div>
+</div>

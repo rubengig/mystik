@@ -1,0 +1,80 @@
+<div class="row justify-content-center my-5">
+  <div class="col-lg-7 col-md-10 col-sm-12">
+    <h1 class="text-center mb-4">
+      <i class="bi bi-trash text-danger me-2"></i>
+      Borrar artículo
+      <i class="bi bi-box-seam text-primary ms-2"></i>
+    </h1>
+
+    <div class="card shadow-sm border-danger mb-4">
+      <div class="card-header bg-danger text-white fw-bold fs-5">Detalles del artículo</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Id:</span> <span>{{ oArticulo!.id }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Nombre:</span> <span>{{ oArticulo!.nombre }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Descripción:</span> <span>{{ oArticulo!.descripcion }}</span>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+          <span>Precio:</span> <span>{{ oArticulo!.precio }} €</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="text-center mb-4">
+      <p class="fs-4 text-danger fw-semibold">¿Seguro que desea borrar el artículo?</p>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3">
+      <button
+        class="btn btn-outline-secondary px-4"
+        [routerLink]="['/admin', 'articulo', 'plist']"
+      >
+        <i class="bi bi-list me-2"></i> Ir a listado de artículos
+      </button>
+      <button class="btn btn-danger px-4" (click)="delete()">
+        <i class="bi bi-trash me-2"></i> Borrar artículo
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  [id]="'mimodal'"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLabel">Proyecto</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="hideModal()"
+        ></button>
+      </div>
+      <div class="modal-body fs-5">
+        <p>{{ strMessage }}</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          (click)="hideModal()"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

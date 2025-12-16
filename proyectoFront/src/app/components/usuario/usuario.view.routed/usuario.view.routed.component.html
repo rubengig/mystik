@@ -1,0 +1,60 @@
+<div class="super-wrapper">
+  
+  <div class="bg-decoration">
+    <div class="stars-bg"></div>
+  </div>
+
+  <div class="container">
+    
+    <div class="page-header">
+      <h2 class="page-title">Tu Esencia</h2>
+      <p class="page-subtitle">"La carta que te representa"</p>
+    </div>
+
+    <div class="profile-card-container">
+      <div class="tarot-profile-card">
+        <div class="inner-border-profile">
+          
+          <span class="card-arcana-label">El Consultante</span>
+          
+          <div class="avatar-container">
+            <span class="material-symbols-outlined avatar-icon">self_improvement</span>
+          </div>
+
+          <h1 class="user-fullname">
+            {{ oUsuario.nombre }}<br>
+            {{ oUsuario.apellido1 }} {{ oUsuario.apellido2 }}
+          </h1>
+          
+          <p class="user-email">{{ oUsuario.email }}</p>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value">{{ numeroPedidos || 0 }}</span>
+              <span class="stat-label">Favoritos</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">0</span> <span class="stat-label">Comentarios</span>
+            </div>
+          </div>
+
+          <div class="actions-container">
+            
+            <a href="/user/articulo/plist" class="btn-mystik-action">
+              <span class="material-symbols-outlined">auto_stories</span>
+              Catálogo
+            </a>
+
+            <a href="/logout" class="btn-mystik-action btn-mystik-logout">
+              <span class="material-symbols-outlined">logout</span>
+              Salir
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,103 @@
+/* --- ESTILOS NAVBAR MYSTIK --- */
+
+/* Contenedor principal de la barra */
+.navbar-mystik {
+  /* Fondo negro semitransparente (Glass oscuro) */
+  background-color: rgba(5, 5, 8, 0.85);
+  backdrop-filter: blur(10px);         /* Desenfoque de lo que hay detrás */
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Línea inferior sutil */
+  padding: 15px 0;
+  transition: all 0.3s ease;
+}
+
+/* Marca / Logo */
+.brand-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  color: #ffffff !important;
+  text-transform: uppercase;
+  margin-right: 40px;
+}
+
+/* Enlaces del menú */
+.nav-link-mystik {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: #b0b0d0 !important; /* Color inactivo (gris azulado) */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 5px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Efecto Hover y Activo en enlaces */
+.nav-link-mystik:hover,
+.nav-link-mystik.active {
+  color: #ffffff !important; /* Blanco puro al pasar el mouse */
+}
+
+/* Línea animada debajo del enlace */
+.nav-link-mystik::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #ffffff;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.nav-link-mystik:hover::after,
+.nav-link-mystik.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Información del usuario (Email) */
+.user-info {
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  padding-right: 15px;
+}
+
+/* Botones (Login / Logout) */
+.btn-mystik {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  padding: 5px 20px;
+  border-radius: 50px; /* Bordes redondos */
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-mystik:hover {
+  background-color: #ffffff;
+  color: #050508; /* Texto negro al hacer hover */
+  border-color: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Ajuste del botón hamburguesa para móvil */
+.navbar-toggler {
+  border: none;
+  opacity: 0.8;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+  opacity: 1;
+}

@@ -1,0 +1,107 @@
+<div class="super-wrapper">
+  
+  <div class="bg-decoration">
+    <div class="stars-bg"></div>
+    <div class="rune-bg rune-1">A</div>
+    <div class="rune-bg rune-2">Ω</div>
+    <div class="rune-bg rune-3">✧</div>
+  </div>
+
+  <div class="container">
+    
+    <div class="page-header">
+      <h2 class="page-title">Lectura Arcana</h2>
+      <p class="page-subtitle">"Los astros revelan el objeto"</p>
+    </div>
+
+    <div class="tarot-big-container">
+      <div class="tarot-card-large">
+        <div class="inner-border-large">
+          
+          <span class="card-number">NO. {{ oArticulo.id }}</span>
+          
+          <div class="image-area-large">
+            @if(oArticulo.id % 2 === 0) {
+              <span class="material-symbols-outlined big-icon">cyclone</span>
+            } @else if (oArticulo.id % 3 === 0) {
+              <span class="material-symbols-outlined big-icon">spa</span>
+            } @else {
+              <span class="material-symbols-outlined big-icon">all_inclusive</span>
+            }
+          </div>
+
+          <h1 class="card-name-large">{{ oArticulo.nombre }}</h1>
+          
+          <div class="card-interpretation">
+            <p>"{{ oArticulo.descripcion }}"</p>
+          </div>
+
+         <div class="attributes-grid">
+            
+            <div class="attr-box">
+              <span class="material-symbols-outlined attr-icon">
+                {{ getOrigen(oArticulo.id).icono }}
+              </span>
+              <span class="attr-label">Procedencia</span>
+              <div class="attr-value">
+                {{ getOrigen(oArticulo.id).texto }}
+              </div>
+            </div>
+
+            <div class="attr-box">
+              <span class="material-symbols-outlined attr-icon">
+                {{ getAura(oArticulo.id).icono }}
+              </span>
+              <span class="attr-label">Naturaleza</span>
+              <div class="attr-value">
+                {{ getAura(oArticulo.id).texto }}
+              </div>
+            </div>
+
+            <div class="attr-box">
+              <span class="material-symbols-outlined attr-icon">
+                {{ getClase(oArticulo.id).icono }}
+              </span>
+              <span class="attr-label">Arquetipo</span>
+              <div class="attr-value">
+                {{ getClase(oArticulo.id).texto }}
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="stats-row">
+            <div class="stat-box">
+              <span class="stat-label">Valor</span>
+              <span class="stat-value">{{ oArticulo.precio }} €</span>
+            </div>
+            
+            <div class="stat-box">
+              <span class="stat-label">Seguidores</span>
+              <span class="stat-value">
+                {{ oArticulo.favoritos }} 
+                <span class="material-symbols-outlined" style="font-size: 1rem; vertical-align: middle;">group</span>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="back-container">
+      <a href="user/articulo/plist" class="btn-back-tarot">
+        <span class="material-symbols-outlined">west</span>
+        Cerrar Lectura
+      </a>
+    </div>
+
+    <div class="comments-section">
+      <h3 class="comments-title">Ecos y Resonancias</h3>
+      <app-comentario-plist-unrouted 
+        [id_articulo]="oArticulo.id">
+      </app-comentario-plist-unrouted>
+    </div>
+
+  </div>
+</div>

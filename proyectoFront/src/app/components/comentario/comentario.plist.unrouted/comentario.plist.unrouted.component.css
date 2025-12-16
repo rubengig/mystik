@@ -1,0 +1,130 @@
+/* --- ESTILOS GENERALES --- */
+:host {
+  display: block;
+  font-family: 'Lato', sans-serif;
+  color: #e0e0e0;
+}
+
+/* Variables de color (Coherencia con la vista Tarot) */
+:root {
+  --tarot-gold: #c5a059;
+  --tarot-bg: rgba(255, 255, 255, 0.03);
+}
+
+/* --- TÍTULO DE SECCIÓN --- */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: var(--tarot-gold);
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+  padding-bottom: 10px;
+}
+
+/* --- TARJETA DE COMENTARIO (Dark Glass) --- */
+.comment-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid var(--tarot-gold); /* Detalle elegante a la izquierda */
+  border-radius: 8px; /* Bordes menos redondos, más serios */
+  padding: 20px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.comment-card:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  transform: translateX(5px); /* Pequeño desplazamiento al hover */
+}
+
+/* Nombre del Usuario */
+.user-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Texto del comentario */
+.comment-text {
+  color: #b0b0c0; /* Gris azulado mate */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Estado Vacío */
+.empty-state {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+  padding: 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+/* --- ÁREA DE INPUT (TEXTAREA) --- */
+.input-area-wrapper {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mystik-textarea {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  width: 100%;
+  resize: none; /* Evita que rompan el diseño */
+  font-family: 'Lato', sans-serif;
+  transition: 0.3s;
+}
+
+.mystik-textarea:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: var(--tarot-gold);
+  outline: none;
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+}
+
+.mystik-textarea::placeholder {
+  color: #666;
+  font-style: italic;
+}
+
+/* --- BOTÓN DE ENVIAR (Estilo Tarot) --- */
+.btn-send-mystik {
+  margin-top: 15px;
+  background: transparent;
+  border: 1px solid var(--tarot-gold);
+  color: var(--tarot-gold);
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.btn-send-mystik:hover {
+  background-color: var(--tarot-gold);
+  color: #050508; /* Texto negro sobre dorado */
+}

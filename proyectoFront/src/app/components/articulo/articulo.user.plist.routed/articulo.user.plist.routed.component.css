@@ -1,0 +1,211 @@
+/* --- ESTRUCTURA GENERAL --- */
+:host {
+  display: block;
+}
+
+.super-wrapper {
+  background: linear-gradient(180deg, #0a0a0c 0%, #150820 100%);
+  min-height: 100vh;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* --- VARIABLES MÍSTICAS --- */
+:root {
+  --tarot-gold: #c5a059; /* Dorado mate elegante */
+  --tarot-bg: #1a1a24;   /* Fondo carta oscuro */
+}
+
+/* --- ESTILO CARTA DE TAROT --- */
+.tarot-card {
+  background-color: #14141a;
+  /* Proporción de carta */
+  aspect-ratio: 2/3.5; 
+  border-radius: 12px;
+  padding: 12px; /* Espacio para el borde exterior */
+  position: relative;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* El marco interno decorativo (Clave del diseño Tarot) */
+.tarot-inner-border {
+  border: 1px solid rgba(197, 160, 89, 0.3); /* Dorado sutil */
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 15px;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+}
+
+/* Hover: La carta "levita" */
+.tarot-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+}
+
+.tarot-card:hover .tarot-inner-border {
+  border-color: var(--tarot-gold); /* El borde se ilumina al pasar el mouse */
+  background: linear-gradient(180deg, rgba(197, 160, 89, 0.05) 0%, transparent 100%);
+}
+
+/* --- ELEMENTOS DE LA CARTA --- */
+
+/* Número romano / ID arriba */
+.arcana-number {
+  font-family: 'Cinzel', serif;
+  color: var(--tarot-gold);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+/* Zona de la imagen (Icono místico) */
+.tarot-image-box {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Círculo decorativo fino detrás del icono */
+.rune-circle {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+
+.tarot-card:hover .rune-circle {
+  border-color: rgba(197, 160, 89, 0.5);
+  transform: scale(1.05);
+}
+
+/* El icono en sí */
+.mystic-icon {
+  font-size: 4rem;
+  color: #e0e0e0;
+  opacity: 0.9;
+}
+
+/* Textos inferiores */
+.tarot-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.1rem;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3); /* Línea separadora */
+  padding-bottom: 10px;
+  width: 80%;
+}
+
+.tarot-desc {
+  font-size: 0.8rem;
+  text-align: center;
+  color: #888;
+  line-height: 1.4;
+  margin-bottom: auto;
+  font-style: italic;
+  /* Cortar texto */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tarot-price {
+  margin-top: 15px;
+  font-family: 'Cinzel', serif;
+  color: var(--tarot-gold);
+  font-size: 1.2rem;
+}
+
+/* --- BUSCADOR ESTILO PERGAMINO OSCURO --- */
+.search-wrapper {
+  max-width: 500px;
+  margin: 0 auto 50px auto;
+  border-bottom: 1px solid var(--tarot-gold);
+  padding-bottom: 5px;
+}
+
+.search-input {
+  background: transparent;
+  border: none;
+  width: 100%;
+  color: #fff;
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #555;
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* --- PAGINACIÓN SIMBÓLICA --- */
+.pagination-wrapper {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+}
+
+.page-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Redondos */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-btn:hover {
+  border-color: var(--tarot-gold);
+  color: var(--tarot-gold);
+}
+
+.page-btn.active {
+  background-color: var(--tarot-gold);
+  color: #000;
+  border-color: var(--tarot-gold);
+}
+
+.page-btn.disabled {
+  opacity: 0.2;
+  cursor: default;
+  border-color: transparent;
+}

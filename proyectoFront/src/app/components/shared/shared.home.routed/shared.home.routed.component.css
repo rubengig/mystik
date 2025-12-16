@@ -1,0 +1,173 @@
+/* --- ESTILO GENERAL --- */
+/* Nota: En Angular, los estilos de body/html a veces es mejor ponerlos en styles.css global,
+   pero el .super-wrapper se encargará del fondo principal aquí. */
+:host {
+  display: block;
+}
+
+.super-wrapper {
+  background: linear-gradient(180deg, #050508 0%, #1a0b2e 100%);
+  min-height: 100vh;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+
+/* TIPOGRAFÍA */
+h1.brand-title {
+  font-family: 'Cinzel', serif;
+  font-size: 3rem;
+  letter-spacing: 8px;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+h2, h3 {
+  font-family: 'Cinzel', serif;
+  color: #ffffff;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.6;
+  color: #b0b0c0;
+}
+
+/* TARJETAS MINIMALISTAS */
+.minimal-card {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 30px;
+  height: 100%;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.minimal-card:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.card-icon {
+  font-size: 40px;
+  color: #ffffff;
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+/* HORÓSCOPO */
+.horoscope-list {
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.horoscope-row {
+  display: flex;
+  align-items: flex-start;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.elem-title {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+/* --- NUMEROLOGÍA INTERACTIVA (VERSIÓN CSS PURO) --- */
+.numerology-container {
+  margin-top: 80px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* Ocultamos los inputs de radio reales */
+.radio-hidden {
+  display: none;
+}
+
+.num-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 300px;
+  margin: 30px auto;
+}
+
+/* Los números ahora son 'labels' que activan los inputs */
+.num-label {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.num-label:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- LA MAGIA DEL CSS --- */
+
+/* Cuando el radio X está marcado, cambiar estilo del label X */
+#n1:checked ~ .num-grid label[for="n1"],
+#n2:checked ~ .num-grid label[for="n2"],
+#n3:checked ~ .num-grid label[for="n3"],
+#n4:checked ~ .num-grid label[for="n4"],
+#n5:checked ~ .num-grid label[for="n5"],
+#n6:checked ~ .num-grid label[for="n6"],
+#n7:checked ~ .num-grid label[for="n7"],
+#n8:checked ~ .num-grid label[for="n8"],
+#n9:checked ~ .num-grid label[for="n9"] {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  border-color: #fff;
+}
+
+/* Caja de textos */
+.meaning-box {
+  min-height: 80px;
+  margin-top: 20px;
+  font-style: italic;
+  color: #d0d0ff;
+  position: relative;
+}
+
+/* Todos los textos ocultos por defecto */
+.meaning-text {
+  display: none; 
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mostrar el texto correspondiente según el radio marcado */
+#n1:checked ~ .meaning-box .t1 { display: block; }
+#n2:checked ~ .meaning-box .t2 { display: block; }
+#n3:checked ~ .meaning-box .t3 { display: block; }
+#n4:checked ~ .meaning-box .t4 { display: block; }
+#n5:checked ~ .meaning-box .t5 { display: block; }
+#n6:checked ~ .meaning-box .t6 { display: block; }
+#n7:checked ~ .meaning-box .t7 { display: block; }
+#n8:checked ~ .meaning-box .t8 { display: block; }
+#n9:checked ~ .meaning-box .t9 { display: block; }

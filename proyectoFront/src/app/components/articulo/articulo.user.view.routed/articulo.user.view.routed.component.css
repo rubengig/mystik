@@ -1,0 +1,251 @@
+/* --- ESTRUCTURA GENERAL --- */
+:host {
+  display: block;
+}
+
+.super-wrapper {
+  background: linear-gradient(180deg, #0a0a0c 0%, #150820 100%);
+  min-height: 100vh;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+  overflow: hidden; /* Para que lo decorativo no descuadre */
+}
+
+/* --- FONDO DECORATIVO (RELLENO SUTIL) --- */
+.bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Click a través */
+  z-index: 0;
+}
+
+.rune-bg {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.02); /* MUY transparente */
+  font-size: 30rem;
+  font-family: 'Cinzel', serif;
+  user-select: none;
+}
+
+.rune-1 { top: 10%; left: -10%; transform: rotate(-20deg); }
+.rune-2 { bottom: 5%; right: -5%; transform: rotate(15deg); }
+.rune-3 { top: 40%; right: 10%; font-size: 10rem; opacity: 0.5; }
+
+/* Constelación de puntos */
+.stars-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.3;
+}
+
+/* Variables */
+:root {
+  --tarot-gold: #c5a059;
+  --tarot-bg: #14141a;
+}
+
+/* --- CABECERA --- */
+.page-header {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.page-title {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  letter-spacing: 4px;
+  color: #888;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.page-subtitle {
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* --- CARTA GIGANTE --- */
+.tarot-big-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.tarot-card-large {
+  background-color: var(--tarot-bg);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  animation: cardReveal 1s ease-out forwards;
+}
+
+@keyframes cardReveal {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.inner-border-large {
+  border: 2px solid rgba(197, 160, 89, 0.4);
+  border-radius: 12px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
+  position: relative;
+}
+
+.card-number {
+  position: absolute;
+  top: 20px;
+  font-family: 'Cinzel', serif;
+  color: var(--tarot-gold);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+/* --- IMAGEN ICONO --- */
+.image-area-large {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  height: 180px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 50%; /* Círculo perfecto */
+  background: radial-gradient(circle at center, rgba(197, 160, 89, 0.05), transparent 70%);
+  position: relative;
+}
+
+/* Anillos decorativos girando */
+.image-area-large::after {
+  content: '';
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.big-icon {
+  font-size: 5rem;
+  color: #e0e0e0;
+}
+
+/* --- TEXTO --- */
+.card-name-large {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.5);
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.card-interpretation {
+  text-align: justify;
+  text-align-last: center;
+  color: #b0b0c0;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 30px;
+}
+
+/* --- GRID DE ATRIBUTOS (RELLENO DE CALIDAD) --- */
+.attributes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  gap: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+}
+
+.attr-box {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.attr-icon {
+  font-size: 1.5rem;
+  color: var(--tarot-gold);
+  margin-bottom: 5px;
+  display: block;
+}
+
+.attr-label {
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+.attr-value {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+/* --- ESTADÍSTICAS --- */
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.stat-box { text-align: center; }
+.stat-label {
+  display: block; font-size: 0.7rem; text-transform: uppercase; color: #666; margin-bottom: 5px; letter-spacing: 1px;
+}
+.stat-value {
+  font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--tarot-gold);
+}
+
+/* --- BOTÓN Y COMENTARIOS --- */
+.back-container {
+  display: flex; justify-content: center; margin-bottom: 60px; position: relative; z-index: 1;
+}
+
+.btn-back-tarot {
+  background: transparent; border: 1px solid rgba(255, 255, 255, 0.2); color: #aaa; padding: 10px 30px; border-radius: 50px; font-family: 'Lato', sans-serif; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; transition: all 0.3s; text-decoration: none; display: flex; align-items: center; gap: 10px;
+}
+.btn-back-tarot:hover { border-color: var(--tarot-gold); color: #fff; background: rgba(197, 160, 89, 0.05); }
+
+.comments-section {
+  max-width: 800px; margin: 0 auto; padding: 40px; background-color: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255, 255, 255, 0.1); border-radius: 20px; position: relative; z-index: 1; backdrop-filter: blur(5px);
+}
+.comments-title { text-align: center; font-family: 'Cinzel', serif; color: #fff; margin-bottom: 30px; font-size: 1.5rem; }

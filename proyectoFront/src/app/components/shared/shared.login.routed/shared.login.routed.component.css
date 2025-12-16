@@ -1,0 +1,147 @@
+/* --- ESTRUCTURA GENERAL --- */
+:host {
+  display: block;
+}
+
+.super-wrapper {
+  background: linear-gradient(180deg, #050508 0%, #1a0b2e 100%);
+  min-height: 100vh;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* --- TARJETA GLASS (Más ancha que el logout) --- */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.03); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 50px 40px;
+  width: 100%;
+  max-width: 450px; /* Un ancho ideal para login */
+  text-align: center;
+}
+
+/* --- TIPOGRAFÍA --- */
+.title-font {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.subtitle-mystik {
+  color: #b0b0c0;
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+/* --- ICONO HEADER --- */
+.icon-header {
+  font-size: 3rem;
+  color: #ffffff;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* --- INPUTS PERSONALIZADOS (Dark Flat) --- */
+.form-label-mystik {
+  color: #e0e0e0;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-align: left;
+  display: block;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-group-mystik {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 5px 15px;
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+}
+
+.input-group-mystik:focus-within {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input-icon {
+  color: #b0b0c0;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+.form-control-mystik {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 0;
+  font-family: 'Lato', sans-serif;
+  outline: none;
+}
+
+.form-control-mystik::placeholder {
+  color: #707080;
+  font-weight: 300;
+}
+
+/* Autocomplete fix para Chrome (fondo oscuro) */
+.form-control-mystik:-webkit-autofill,
+.form-control-mystik:-webkit-autofill:hover, 
+.form-control-mystik:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px #0e0e15 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* --- BOTÓN FLAT PRIMARY --- */
+.btn-flat-primary {
+  background-color: #ffffff;
+  color: #050508;
+  border: 1px solid #ffffff;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.btn-flat-primary:hover {
+  background-color: #dbe0e6;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+/* --- ERROR MESSAGE --- */
+.error-box {
+  margin-top: 20px;
+  color: #ef5350;
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(239, 83, 80, 0.2);
+  padding-top: 10px;
+  text-align: center;
+}

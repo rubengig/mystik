@@ -1,0 +1,165 @@
+<style>
+  /* Card con fondo oscuro y sombras místicas */
+  .card-mystik {
+    background: linear-gradient(135deg, #311b92, #512da8);
+    color: #d1c4e9;
+    border: none;
+    box-shadow: 0 0 15px rgba(103, 58, 183, 0.7);
+  }
+
+  /* Encabezado de card en degradado violeta oscuro */
+  .card-header-mystik {
+    background: linear-gradient(90deg, #7b1fa2, #512da8);
+    color: #ede7f6;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  /* Lista mística */
+  .list-group-item-mystik {
+    background-color: #4a148c;
+    color: #d1c4e9;
+    border: none;
+  }
+
+  /* Texto rojo mistico para alertas y botones peligrosos */
+  .text-danger-mystik {
+    color: #f48fb1 !important; /* suave rosa/rosa palo */
+    font-weight: 600;
+  }
+
+  /* Botones */
+  .btn-outline-secondary-mystik {
+    color: #ce93d8;
+    border-color: #ce93d8;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .btn-outline-secondary-mystik:hover {
+    background-color: #ce93d8;
+    color: #311b92;
+  }
+
+  .btn-danger-mystik {
+    background-color: #ce93d8;
+    border: none;
+    color: #311b92;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-danger-mystik:hover {
+    background-color: #ab47bc;
+    color: #ede7f6;
+  }
+
+  /* Modal */
+  .modal-content-mystik {
+    background: linear-gradient(135deg, #311b92, #512da8);
+    color: #d1c4e9;
+    border: none;
+  }
+
+  .modal-header-mystik {
+    background: linear-gradient(90deg, #7b1fa2, #512da8);
+    color: #ede7f6;
+    font-weight: 700;
+  }
+
+  .btn-primary-mystik {
+    background-color: #7b1fa2;
+    border: none;
+  }
+
+  .btn-primary-mystik:hover {
+    background-color: #512da8;
+  }
+</style>
+
+<div class="row justify-content-center my-5">
+  <div class="col-lg-7 col-md-10 col-sm-12">
+    <h1 class="text-center mb-4">
+      <i class="bi bi-trash text-danger-mystik me-2"></i>
+      Borrar usuario
+      <i class="bi bi-person-circle text-mystik ms-2"></i>
+    </h1>
+
+    <div class="card card-mystik shadow-sm mb-4 rounded-4">
+      <div class="card-header card-header-mystik">Datos del usuario</div>
+      <ul class="list-group list-group-flush rounded-0">
+        <li class="list-group-item list-group-item-mystik d-flex justify-content-between">
+          <span>Id:</span> <span>{{ oUsuario!.id }}</span>
+        </li>
+        <li class="list-group-item list-group-item-mystik d-flex justify-content-between">
+          <span>Nombre:</span> <span>{{ oUsuario!.nombre }}</span>
+        </li>
+        <li class="list-group-item list-group-item-mystik d-flex justify-content-between">
+          <span>Primer Apellido:</span> <span>{{ oUsuario!.apellido1 }}</span>
+        </li>
+        <li class="list-group-item list-group-item-mystik d-flex justify-content-between">
+          <span>Segundo Apellido:</span> <span>{{ oUsuario!.apellido2 }}</span>
+        </li>
+        <li class="list-group-item list-group-item-mystik d-flex justify-content-between">
+          <span>Correo:</span> <span>{{ oUsuario!.email }}</span>
+        </li>
+        <li class="list-group-item list-group-item-mystik d-flex justify-content-between">
+          <span>Tipo de usuario:</span>
+          <span>{{ oUsuario!.tipousuario.descripcion }} ({{ oUsuario!.tipousuario.id }})</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="text-center mb-4">
+      <p class="fs-4 text-danger-mystik fw-semibold">¿Seguro que desea borrar el usuario?</p>
+    </div>
+
+    <div class="d-flex justify-content-center gap-3">
+      <button
+        class="btn btn-outline-secondary-mystik px-4"
+        [routerLink]="['/admin', 'usuario', 'plist']"
+      >
+        <i class="bi bi-list me-2"></i> Ir a listado de Usuarios
+      </button>
+      <button class="btn btn-danger-mystik px-4" (click)="delete()">
+        <i class="bi bi-trash me-2"></i> Borrar usuario
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  [id]="'mimodal'"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-content-mystik shadow-lg rounded-4">
+      <div class="modal-header modal-header-mystik">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+        <button
+          type="button"
+          class="btn-close btn-close-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="hideModal()"
+        ></button>
+      </div>
+      <div class="modal-body fs-5">
+        <p>{{ strMessage }}</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-primary btn-primary-mystik"
+          data-bs-dismiss="modal"
+          (click)="hideModal()"
+        >
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<h4 class="section-title fade-in-up">
+  <span class="material-symbols-outlined">visibility</span>
+  Interpretaciones del Arcano
+</h4>
+
+<div class="d-flex flex-column gap-3 fade-in-up">
+  
+  @for (comentario of oPage?.content; track comentario.id) {
+    <div class="comment-card">
+      
+      <h5 class="user-name">
+        <span class="material-symbols-outlined" style="font-size: 1.1rem; opacity: 0.7;">psychology_alt</span>
+        Lectura de {{ comentario.usuario.nombre }} {{ comentario.usuario.apellido1 }}
+      </h5>
+      
+      <p class="comment-text">
+        “{{ comentario.texto }}”
+      </p>
+      
+    </div>
+  } @empty {
+    <p class="empty-state fade-in-up">
+      El destino guarda silencio... sé el primero en revelar el significado de esta carta.
+    </p>
+  }
+
+</div>
+
+<div class="input-area-wrapper fade-in-up">
+  
+  <textarea
+    [(ngModel)]="nuevoComentario"
+    class="form-control mystik-textarea mb-3"
+    rows="3"
+    placeholder="¿Qué energía percibes en este objeto? Describe tu visión..."
+  ></textarea>
+
+  <button
+    (click)="addComentario()"
+    class="btn-send-mystik"
+  >
+    <span class="material-symbols-outlined" style="font-size: 1.1rem;">auto_awesome</span>
+    Compartir Visión
+  </button>
+
+</div>

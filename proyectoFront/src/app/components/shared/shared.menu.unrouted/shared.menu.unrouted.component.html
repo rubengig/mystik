@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-mystik">
+  <div class="container-fluid">
+    
+    <a class="navbar-brand brand-text" href="#">MYSTIK</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link nav-link-mystik" [class.active]="strRuta == '/home' || strRuta == '/' || strRuta == ''" aria-current="page" href="/home">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-mystik" [class.active]="strRuta == '/admin/usuario/plist'" href="/admin/usuario/plist">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-mystik" [class.active]="strRuta == '/admin/articulo/plist'" href="/admin/articulo/plist">Artículos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-mystik" [class.active]="strRuta == '/user/articulo/plist'" href="/user/articulo/plist">Catálogo</a>
+        </li>
+
+      </ul>
+
+      <div class="d-flex align-items-center gap-3">
+        @if(!activeSession){
+          <a href="/login" class="btn btn-mystik">
+            Iniciar Sesión
+          </a>
+        } @else {
+          
+          <a 
+            [routerLink]="['/user/usuario/view', userEmail]" 
+            class="user-info text-decoration-none" 
+            style="cursor: pointer; color: inherit; transition: 0.3s;"
+            title="Ver mi perfil místico"
+          >
+            <span class="material-symbols-outlined fs-5 me-1" style="vertical-align: middle;">person</span> 
+            {{ userEmail }}
+          </a>
+
+          <a href="/logout" class="btn btn-mystik">
+            Logout
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

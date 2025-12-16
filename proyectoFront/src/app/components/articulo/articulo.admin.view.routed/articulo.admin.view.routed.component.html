@@ -1,0 +1,66 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7 col-md-10 col-sm-12">
+
+      <!-- Encabezado -->
+      <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">
+          <i class="bi bi-card-list me-2"></i>
+          Detalle del Artículo ({{ oArticulo.id }})
+          <i class="bi bi-box-seam ms-2"></i>
+        </h1>
+        <p class="text-muted fs-5">{{ oArticulo.nombre }}</p>
+      </div>
+
+      <!-- Detalles del artículo -->
+      <div class="card shadow-sm border-0">
+        <div class="card-body">
+
+          <div class="mb-4">
+            <h6 class="text-muted">ID</h6>
+            <p class="fs-5">{{ oArticulo.id }}</p>
+          </div>
+
+          <hr />
+
+          <div class="mb-4">
+            <h6 class="text-muted">Nombre</h6>
+            <p class="fs-5">{{ oArticulo.nombre }}</p>
+          </div>
+
+          <hr />
+
+          <div class="mb-4">
+            <h6 class="text-muted">Descripción</h6>
+            <p class="fs-5">{{ oArticulo.descripcion }}</p>
+          </div>
+
+          <hr />
+
+          <div class="mb-3">
+            <h6 class="text-muted">Precio</h6>
+            <p class="fs-5">{{ oArticulo.precio }} €</p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Botones de acción -->
+      <div class="d-flex justify-content-center mt-4 flex-wrap gap-2">
+        <a class="btn btn-secondary" href="admin/articulo/plist">
+          <i class="bi bi-list me-1"></i>
+          Volver al listado
+        </a>
+        <a class="btn btn-primary" href="admin/articulo/edit/{{ oArticulo.id }}">
+          <i class="bi bi-pencil me-1"></i>
+          Editar
+        </a>
+        <a class="btn btn-danger" href="admin/articulo/delete/{{ oArticulo.id }}">
+          <i class="bi bi-trash me-1"></i>
+          Borrar
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>

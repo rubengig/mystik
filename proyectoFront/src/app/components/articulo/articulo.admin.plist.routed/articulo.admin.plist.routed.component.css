@@ -1,0 +1,189 @@
+/* --- ESTRUCTURA GENERAL --- */
+:host {
+  display: block;
+}
+
+.super-wrapper {
+  background: linear-gradient(180deg, #050508 0%, #1a0b2e 100%);
+  min-height: 100vh;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+/* --- CONTENEDOR DARK GLASS --- */
+.glass-container {
+  background-color: rgba(15, 15, 25, 0.85); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* --- TABLA MÍSTICA (Override Bootstrap) --- */
+.table-mystik {
+  --bs-table-bg: transparent; 
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-bg: transparent;
+  --bs-table-hover-bg: rgba(255, 255, 255, 0.05);
+  
+  color: #e0e0e0;
+  vertical-align: middle;
+  margin-bottom: 0;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-mystik thead th {
+  background-color: rgba(100, 50, 200, 0.15);
+  color: #ffffff;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 18px 10px;
+  cursor: pointer;
+}
+
+.table-mystik thead th:hover {
+  background-color: rgba(100, 50, 200, 0.25);
+}
+
+.table-mystik tbody td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 15px 10px;
+  color: #d0d0e0;
+}
+
+.table-mystik tbody tr:hover td {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- BOTONES DE ACCIÓN --- */
+.btn-group-mystik {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+.btn-action {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #b0b0d0;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-action:hover {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
+.btn-action.delete:hover {
+  background: #ff5252;
+  border-color: #ff5252;
+  color: #fff;
+}
+
+/* --- CONTROLES (Buscador y Botón Nuevo) --- */
+.input-group-text {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #b0b0c0 !important;
+}
+
+.search-mystik {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  font-family: 'Lato', sans-serif;
+}
+
+.search-mystik::placeholder {
+  color: #707080 !important;
+}
+
+.search-mystik:focus {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: #ffffff !important;
+  box-shadow: none !important;
+}
+
+.btn-create {
+  background-color: #ffffff;
+  color: #050508;
+  border: 1px solid #ffffff;
+  padding: 7px 20px;
+  border-radius: 6px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+}
+
+.btn-create:hover {
+  background-color: #dbe0e6;
+  transform: translateY(-2px);
+  color: #000;
+}
+
+/* --- TEXTOS INFORMATIVOS --- */
+.info-text-mystik {
+  color: #b0b0c0;
+  font-size: 0.9rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.text-highlight {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* --- PAGINACIÓN --- */
+.pagination {
+  margin-top: 0;
+}
+
+.page-link {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #b0b0d0;
+  transition: all 0.3s;
+}
+
+.page-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.page-item.active .page-link {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #050508;
+  font-weight: 700;
+}
+
+.page-item.disabled .page-link {
+  background-color: transparent;
+  color: #444;
+  border-color: rgba(255, 255, 255, 0.05);
+}

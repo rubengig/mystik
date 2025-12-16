@@ -1,0 +1,120 @@
+/* --- ESTRUCTURA GENERAL --- */
+:host {
+  display: block;
+}
+
+.super-wrapper {
+  /* Fondo consistente con la Home: Oscuro y profundo */
+  background: linear-gradient(180deg, #050508 0%, #1a0b2e 100%);
+  min-height: 100vh;
+  width: 100%;
+  color: #e0e0e0;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  align-items: center; /* Centrado vertical */
+  justify-content: center;
+}
+
+/* --- TARJETA MINIMALISTA (GLASS) --- */
+.glass-card {
+  /* Fondo plano semitransparente */
+  background-color: rgba(255, 255, 255, 0.03); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 50px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+/* --- TIPOGRAFÍA --- */
+.title-font {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.text-muted-mystik {
+  color: #b0b0c0; /* Gris azulado mate */
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* --- ICONO PRINCIPAL --- */
+.icon-header {
+  font-size: 3.5rem;
+  color: #ffffff;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+/* --- BOTONES FLAT DESIGN --- */
+
+/* Botón Primario (Confirmar): Blanco Sólido */
+.btn-flat-primary {
+  background-color: #ffffff;
+  color: #050508; /* Texto negro por defecto */
+  border: 1px solid #ffffff;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* CORRECCIÓN AQUÍ: Forzamos texto negro al hacer hover */
+.btn-flat-primary:hover {
+  background-color: #dbe0e6; /* Un gris muy clarito para notar el click */
+  color: #000000 !important; /* IMPORTANTE: Texto negro */
+  border-color: #dbe0e6;
+  transform: translateY(-2px);
+}
+
+/* Botón Secundario (Cancelar): Transparente */
+.btn-flat-secondary {
+  background-color: transparent;
+  color: #b0b0c0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-flat-secondary:hover {
+  border-color: #ffffff;
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* --- MENSAJES DE ESTADO --- */
+.error-box {
+  margin-top: 20px;
+  color: #ef5350;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(239, 83, 80, 0.3);
+  padding-top: 10px;
+}
